@@ -26,4 +26,3 @@ export class LeftMenuComponent {
     this.isMenuOpen = false;
   }
 }
- 
