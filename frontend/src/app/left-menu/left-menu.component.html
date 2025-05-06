@@ -17,5 +17,12 @@
         </li>
       }
     </ul>
+    <div class="theme-toggle">
+      <button (click)="toggleTheme()" class="theme-button">
+        <span class="theme-icon" [class.dark]="isDarkMode$ | async">🌙</span>
+        <span class="theme-icon" [class.light]="!(isDarkMode$ | async)">☀️</span>
+        <span class="theme-text">{{ (isDarkMode$ | async) ? 'Dark' : 'Light' }} Mode</span>
+      </button>
+    </div>
   </div>
 </nav>
