@@ -25,4 +25,5 @@ export class LeftMenuComponent {
   closeMenu() {
     this.isMenuOpen = false;
   }
-} 
+}
+ 
