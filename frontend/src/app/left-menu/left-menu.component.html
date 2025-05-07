@@ -1,0 +1,28 @@
+<nav class="left-menu" [class.menu-open]="isMenuOpen">
+  <button class="menu-toggle" (click)="toggleMenu()">
+    <img src="assets/images/avatar.svg" alt="User Avatar" class="avatar-icon" [class.hidden]="isMenuOpen">
+    <span class="close-icon" [class.hidden]="!isMenuOpen">×</span>
+  </button>
+  <div class="menu-content">
+    <div class="avatar-section">
+      <img src="assets/images/avatar.svg" alt="User Avatar" class="avatar">
+      <h3 class="user-name">User Name</h3>
+    </div>
+    <ul>
+      @for (item of menuItems; track item.title) {
+        <li>
+          <a [routerLink]="item.path" routerLinkActive="active" (click)="closeMenu()">
+            {{ item.title }}
+          </a>
+        </li>
+      }
+    </ul>
+    <div class="theme-toggle">
+      <button (click)="toggleTheme()" class="theme-button">
+        <span class="theme-icon" [class.dark]="isDarkMode$ | async">🌙</span>
+        <span class="theme-icon" [class.light]="!(isDarkMode$ | async)">☀️</span>
+        <span class="theme-text">{{ (isDarkMode$ | async) ? 'Dark' : 'Light' }} Mode</span>
+      </button>
+    </div>
+  </div>
+</nav>

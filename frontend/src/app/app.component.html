@@ -1,0 +1,6 @@
+<div class="app-container" [class.dark-theme]="isDarkMode$ | async">
+  <app-left-menu></app-left-menu>
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>
