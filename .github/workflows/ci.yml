@@ -44,10 +44,16 @@ jobs:
         cd frontend
         npm ci
     
+    - name: Set up headless browser environment
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y xvfb
+        sudo apt-get install -y libgbm1
+    
     - name: Run tests
       run: |
         cd frontend
-        npm test
+        xvfb-run --auto-servernum --server-args="-screen 0 1280x720x24" npm test
 
   build:
     needs: [test-backend, test-frontend]
